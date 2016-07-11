@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <title>分页插件</title>
+    <meta charset="utf-8">
+    <style>
+       .paginate{
+        margin: 20px;
+        text-align: center;
+    }
+    .paginate a{
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 3px;
+        padding: 3px 8px;
+        border:1px solid #ddd;
+        color: #666;
+    }
+    .paginate a.active{
+        background-color: blue;
+        border-color: blue;
+        color: #fff;
+    }
+</style>
+</head>
+<body>
+
+    <div id="paginate" class="paginate"></div>
+    <div id="paginate1" class="paginate"></div>
+    <script src="jquery.min.js"></script>
+    <script src="paginate.js"></script>
+    <script>
+        $(function(){
+            $('#paginate').paginate();
+            $('#paginate1').paginate({    
+                currentPage:5,//当前页码
+                totalItem:500,//总条目数                   
+                pageSize:10,//每页条目
+                showPage:10,//每次显示多少页   
+                activeClass:'active',//当前页class
+                prevText:'上一页',//上一页文字
+                nextText:'下一页',//下一页文字            
+                onClick:function(page){
+                    console.log('clicked page:'+page);
+                }
+            });
+        })
+    </script>
+</body>
+</html>
